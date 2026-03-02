@@ -1,90 +1,96 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import { Code, ExternalLink, Github } from "lucide-react";
 import { ProjectItem } from "@/lib/mdx";
 import { siteConfig } from "@/config/site";
 
 export default function Projects({ projects }: { projects: ProjectItem[] }) {
-  const containerVariants = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.15 },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+  const item: Variants = {
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="projects" className="py-32 w-full bg-secondary/20">
+    <section
+      id="projects"
+      className="py-20 md:py-28 w-full bg-secondary/10"
+    >
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <Code className="w-10 h-10 text-primary" />
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight font-serif text-foreground">
-                Featured Works
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <Code className="w-8 h-8 text-primary" />
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+                Featured Projects
               </h2>
             </div>
-            <p className="text-muted-foreground text-lg max-w-lg leading-relaxed">
-              Engineered for performance, built for longevity. A collection of
-              my best professional work.
+
+            <p className="text-muted-foreground text-base md:text-lg max-w-lg leading-relaxed">
+              Production-ready systems engineered with performance,
+              scalability, and maintainability in mind.
             </p>
           </div>
+
           <Link
             href={siteConfig.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex bg-card border rounded-md border-border hover:bg-primary hover:text-primary-foreground hover:border-primary items-center gap-3 px-6 py-3 text-primary font-medium shadow-sm hover:shadow-md transition-all duration-300 w-fit"
+            className="group flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg bg-card text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm hover:shadow-md w-fit"
           >
-            <span>View GitHub</span>
+            <span className="font-medium text-sm">View All on GitHub</span>
             <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
+        {/* Projects Grid */}
         <motion.div
-          variants={containerVariants}
+          variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 items-stretch"
+          className="grid gap-8 grid-cols-1 md:grid-cols-2 items-stretch"
         >
           {projects.map((project, idx) => (
-            <motion.div
+            <motion.article
               key={idx}
-              variants={itemVariants}
-              className="group w-full relative overflow-hidden rounded-xl bg-card border border-border shadow-sm hover:shadow-md hover:border-border/80 transition-all duration-500 flex flex-col hover:-translate-y-2"
+              variants={item}
+              className="group flex flex-col h-full bg-card/80 backdrop-blur-sm border border-border/60 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="p-8 pb-6 bg-card border-b border-border/50 flex flex-col items-start gap-4 flex-1">
-                <div className="flex justify-between items-start w-full gap-4">
-                  <h3 className="text-2xl font-black text-foreground group-hover:text-primary transition-colors tracking-tight flex-1">
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-1">
+                <div className="mb-5 space-y-2">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
                     {project.frontMatter.title}
                   </h3>
-                  <Link
-                    href={siteConfig.links.github}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-secondary/50 rounded-md text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 shrink-0 border border-border hover:border-border/80 text-xs font-semibold group/link"
-                  >
-                    <Github className="w-4 h-4" />
-                    <span className="hidden sm:inline-block">Source code</span>
-                  </Link>
+
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wide">
+                    <span className="text-primary font-semibold">
+                      {project.frontMatter.role}
+                    </span>
+                    <span className="w-1 h-1 bg-border rounded-full shrink-0" />
+                    <span className="text-muted-foreground shrink-0">
+                      {project.frontMatter.date}
+                    </span>
+                  </div>
                 </div>
 
-                <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
-                  {project.frontMatter.role}{" "}
-                  <span className="mx-2 opacity-50">•</span>{" "}
-                  {project.frontMatter.date}
-                </p>
-
-                <ul className="space-y-3 text-muted-foreground text-sm md:text-base leading-relaxed pt-4 flex-1">
+                {/* Bullet Points */}
+                <ul className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                   {project.content
                     .split("\n")
                     .filter((line) => line.trim().startsWith("-"))
@@ -92,36 +98,63 @@ export default function Projects({ projects }: { projects: ProjectItem[] }) {
                       const text = line.replace(/^- /, "").trim();
                       return (
                         <li key={i} className="flex items-start gap-3">
-                          <span className="text-primary mt-1 text-lg leading-none">
-                            &#8226;
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                          <span className="text-muted-foreground">
+                            {text.split(/\*\*(.*?)\*\*/g).map((part, index) =>
+                              index % 2 === 1 ? (
+                                <span key={index} className="text-foreground font-semibold">
+                                  {part}
+                                </span>
+                              ) : (
+                                part
+                              )
+                            )}
                           </span>
-                          <span
-                            dangerouslySetInnerHTML={{
-                              __html: text.replace(
-                                /\*\*(.*?)\*\*/g,
-                                '<strong class="text-foreground/90 font-semibold">$1</strong>'
-                              ),
-                            }}
-                          />
                         </li>
                       );
                     })}
                 </ul>
+
+                {/* CTA Buttons */}
+                <div className="mt-auto pt-6 flex flex-wrap gap-3">
+                  {project.frontMatter.live && (
+                    <a
+                      href={project.frontMatter.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold transition hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Preview
+                    </a>
+                  )}
+
+                  <a
+                    href={project.frontMatter.github || siteConfig.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-sm font-semibold text-foreground hover:bg-secondary/40 transition"
+                  >
+                    <Github className="w-4 h-4" />
+                    Source
+                  </a>
+                </div>
               </div>
 
-              <div className="p-6 bg-secondary/30 mt-auto">
+              {/* Tech Stack Footer */}
+              <div className="px-6 py-4 border-t border-border/50">
                 <div className="flex flex-wrap gap-2">
-                  {project.frontMatter.techStack.map((tag) => (
+                  {project.frontMatter.techStack.map((tech) => (
                     <span
-                      key={tag}
-                      className="text-[11px] font-medium px-3 py-1 bg-secondary/50 rounded-md text-secondary-foreground border border-border hover:border-border/80 transition-colors"
+                      key={tech}
+                      className="text-[11px] font-medium px-3 py-1 rounded-full bg-muted text-muted-foreground hover:text-foreground transition"
                     >
-                      {tag}
+                      {tech}
                     </span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

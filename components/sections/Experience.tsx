@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Briefcase, Building2, MapPin, ChevronRight } from "lucide-react";
+import { Briefcase, Building2, MapPin, ExternalLink } from "lucide-react";
 import { ExperienceItem } from "@/lib/mdx";
 
 export default function Experience({
@@ -37,23 +37,38 @@ export default function Experience({
                 <div className="absolute left-[26px] md:left-[240px] top-[40px] md:top-[46px] w-4 h-4 bg-border rounded-full -translate-x-[7px] ring-4 ring-background group-hover:bg-primary group-hover:scale-125 transition-all duration-500 z-10" />
 
                 {/* Left side: Date & Location */}
-                <div className="w-full md:w-[240px] pt-8 md:pt-10 pl-14 md:pl-0 md:pr-12 md:text-right flex flex-col items-start md:items-end gap-2 mb-4 md:mb-0 flex-shrink-0">
-                  <span className="inline-block px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-bold tracking-widest uppercase transition-colors duration-300 whitespace-nowrap">
+                <div className="w-full md:w-[240px] pt-8 md:pt-10 pl-14 md:pl-0 md:pr-12 flex flex-col items-start md:items-end gap-2 mb-4 md:mb-0 flex-shrink-0">
+                  <span className="inline-block px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md text-xs font-bold font-serif tracking-widest uppercase transition-colors duration-300 whitespace-nowrap border border-border/50">
                     {exp.frontMatter.date}
                   </span>
-                  <span className="flex items-start md:justify-end gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-widest mt-2 w-full text-left md:text-right">
-                    <MapPin className="w-3.5 h-3.5 flex-shrink-0 mt-[2px]" />
-                    <span className="text-left md:text-right">{exp.frontMatter.location}</span>
-                  </span>
+                  <div className="text-left md:text-right mt-1 w-full max-w-[200px]">
+                    <p className="inline text-xs font-semibold font-serif text-muted-foreground uppercase tracking-widest leading-relaxed">
+                      <MapPin className="inline-block w-3.5 h-3.5 mr-1.5 -mt-0.5 text-primary opacity-80" />
+                      {exp.frontMatter.location}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Right side: Content Card */}
                 <div className="flex-1 w-full pl-14 md:pl-10">
                   <div className="bg-card p-6 md:p-8 rounded-xl border border-border shadow-sm hover:border-border/80 hover:shadow-md transition-all duration-500 h-full">
-                    <h3 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight group-hover:text-primary transition-colors">
-                      {exp.frontMatter.title}
-                    </h3>
-                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-8 flex items-center gap-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
+                      <h3 className="text-2xl md:text-3xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors">
+                        {exp.frontMatter.title}
+                      </h3>
+                      {exp.frontMatter.live && (
+                        <a 
+                          href={exp.frontMatter.live} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md bg-secondary/50 hover:bg-secondary text-secondary-foreground transition-colors w-fit border border-border/50"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          View Live
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-xs sm:text-sm font-bold font-serif uppercase tracking-widest text-primary mb-8 flex items-center gap-2">
                       <Building2 className="w-4 h-4" />
                       {exp.frontMatter.company}
                     </p>

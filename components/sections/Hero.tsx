@@ -3,17 +3,23 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { siteConfig } from "@/config/site";
+import { TypingAnimation } from "@/components/ui/typing-animation";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-20 w-full">
-      <div className="max-w-[1200px] mx-auto px-6 w-full z-10 relative">
+    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-24 sm:pb-32 w-full overflow-hidden">
+      {/* Background Radial Glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl opacity-50 sm:opacity-100" />
+      </div>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center gap-8"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center text-center gap-6"
         >
+          {/* Availability Badge */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -38,27 +44,65 @@ export default function Hero() {
               </span>
             </div>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.05] text-balance max-w-5xl mx-auto drop-shadow-sm font-serif">
-            Arshnoor Kirmani <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-700 dark:from-primary dark:to-blue-300">
-              Front-End Developer.
-            </span>
+
+          {/* Name */}
+          <h1 className="text-5xl sm:text-7xl lg:text-[6rem] xl:text-[7.5rem] font-black tracking-tighter leading-[1.05] max-w-5xl xl:max-w-7xl text-foreground">
+            Arshnoor Kirmani
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-            I specialize in building scalable, production-ready web applications
-            using{" "}
-            <strong className="text-foreground">
-              React.js, Next.js, and TypeScript.
-            </strong>
+          {/* Dynamic Role */}
+          <div className="text-3xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] font-bold tracking-tight mt-2 sm:mt-4">
+            <TypingAnimation
+              words={[
+                "Frontend Developer",
+                "React Specialist",
+                "UI/UX Enthusiast",
+                "TypeScript Developer"
+              ]}
+              className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent justify-center items-center"
+            />
+          </div>
+
+          {/* Description */}
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mt-2">
+            I build scalable web applications with a focus on performance, 
+            accessibility, and maintainable code using{" "}
+            <span className="text-foreground font-semibold">
+              React, Next.js, and TypeScript.
+            </span>
           </p>
 
+          {/* Stats Row */}
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-12 mt-8 text-sm text-muted-foreground">
+            <div className="flex flex-col items-center">
+              <span className="text-2xl sm:text-3xl font-bold text-foreground">5+</span>
+              <span className="mt-1 font-medium">Modern Tech Stacks</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl sm:text-3xl font-bold text-foreground">95+</span>
+              <span className="mt-1 font-medium">Lighthouse Score</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl sm:text-3xl font-bold text-foreground">3+</span>
+              <span className="mt-1 font-medium">Production Projects</span>
+            </div>
+          </div>
+
+          {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
             <Link
               href={siteConfig.nav.projects}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-md font-bold text-lg hover:-translate-y-1 shadow-sm hover:shadow-md transition-all duration-300 w-full sm:w-auto text-center"
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/40 w-full sm:w-auto text-center"
             >
-              Explore My Work
+              View Projects
+            </Link>
+            <Link
+              href={siteConfig.links.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="border border-border bg-background px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-secondary hover:-translate-y-1 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-border w-full sm:w-auto text-center"
+            >
+              Download Resume
             </Link>
           </div>
         </motion.div>

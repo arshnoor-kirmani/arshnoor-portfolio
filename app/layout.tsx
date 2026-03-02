@@ -1,25 +1,33 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Outfit, Fira_Code } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeButton } from "@/components/theme-toggle-btn";
 import Transition from "@/components/ui/transition";
+import { TypingAnimation } from "@/components/ui/typing-animation";
 import { defaultMetadata } from "@/lib/metadata";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const firaCode = Fira_Code({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
 });
 
 export const metadata: Metadata = defaultMetadata;
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export default function RootLayout({
   children,
@@ -30,7 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${playfair.variable}`}
+      className={`${outfit.variable} ${firaCode.variable}`}
     >
       <body className="bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary min-h-screen">
         <ThemeProvider
@@ -64,16 +72,17 @@ export default function RootLayout({
                     </div>
 
                     {/* Headline */}
-                    <div className="space-y-2">
-                      <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter font-serif animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
-                        <span className="block text-foreground mb-2">
-                          Welcome to
-                        </span>
-                        <span className="inline-block bg-clip-text text-transparent bg-gradient-to-br from-primary to-primary/50 pb-2">
-                          My Portfolio
-                        </span>
-                      </h1>
-                    </div>
+                <div className="space-y-2">
+                  <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter font-serif animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
+                    <span className="block text-foreground mb-2">
+                      Welcome to
+                    </span>
+                    <TypingAnimation 
+                      words={["My Portfolio", "My Universe", "My Creations", "My Story"]}
+                      className="inline-block bg-clip-text text-transparent bg-linear-to-br from-primary to-primary/50 pb-2 border-none"
+                    />
+                  </h1>
+                </div>
 
                     {/* Elegant Divider */}
                     <div className="flex items-center justify-center gap-2 animate-in fade-in zoom-in-50 duration-700 delay-500 fill-mode-both">

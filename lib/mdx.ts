@@ -54,6 +54,7 @@ export type ExperienceItem = {
     company: string;
     date: string;
     location: string;
+    live?: string;
     order?: number;
   };
   content: string;
@@ -67,6 +68,8 @@ export type ProjectItem = {
     date: string;
     techStack: string[];
     image?: string;
+    live?: string;
+    github?: string;
     order?: number;
   };
   content: string;
