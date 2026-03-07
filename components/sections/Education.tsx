@@ -31,7 +31,7 @@ export default function Education({
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center gap-4 mb-20">
           <GraduationCap className="w-10 h-10 text-primary" />
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Education.
           </h2>
         </div>
@@ -66,7 +66,7 @@ export default function Education({
                   <div className="h-px w-full bg-border/50 mb-6" />
 
                   <div className="flex-1">
-                    <p className="text-lg font-bold text-foreground/90">
+                    <p className="text-lg font-medium text-foreground/90">
                       {edu.frontMatter.school}
                     </p>
                     <div className="flex items-center gap-1.5 mt-2 text-muted-foreground text-sm font-medium">

@@ -14,7 +14,7 @@ export default function Experience({
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center gap-4 mb-20">
           <Briefcase className="w-10 h-10 text-primary" />
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Career Path.
           </h2>
         </div>
@@ -53,7 +53,7 @@ export default function Experience({
                 <div className="flex-1 w-full pl-14 md:pl-10">
                   <div className="bg-card p-6 md:p-8 rounded-xl border border-border shadow-sm hover:border-border/80 hover:shadow-md transition-all duration-500 h-full">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
-                      <h3 className="text-2xl md:text-3xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-medium text-foreground tracking-tight group-hover:text-primary transition-colors">
                         {exp.frontMatter.title}
                       </h3>
                       {exp.frontMatter.live && (

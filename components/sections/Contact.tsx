@@ -23,7 +23,7 @@ export default function Contact() {
             <Mail className="w-10 h-10 text-primary" strokeWidth={1.5} />
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tighter text-balance">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight text-balance">
             Let's Build Something <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-700 dark:from-primary dark:to-blue-300">
             Amazing.

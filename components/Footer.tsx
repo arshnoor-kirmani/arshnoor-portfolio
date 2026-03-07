@@ -19,8 +19,8 @@ export default function Footer() {
               <div className="size-8 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 group-hover:bg-primary transition-colors duration-300">
                 <CodeXml className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
-              <span className="font-black text-xl tracking-tight">
-                AK<span className="text-primary">.dev</span>
+              <span className="font-bold text-xl tracking-tight">
+                AK<span className="text-primary font-sans font-medium">.dev</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground text-center md:text-left font-medium">

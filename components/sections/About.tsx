@@ -37,7 +37,7 @@ export default function About() {
             className="w-full lg:w-1/2 space-y-8"
           >
             <div className="inline-block">
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                 Beyond the Code.
               </h2>
               <div className="h-1.5 w-24 bg-primary"></div>
@@ -128,7 +128,7 @@ export default function About() {
                 <div className="absolute -top-4 -right-4 p-4 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 group-hover:rotate-12 duration-500 pointer-events-none">
                   {stat.icon}
                 </div>
-                <h4 className="text-5xl md:text-6xl font-black text-foreground mb-3 group-hover:text-primary transition-colors relative z-10">
+                <h4 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors relative z-10">
                   {stat.value}
                 </h4>
                 <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest relative z-10">

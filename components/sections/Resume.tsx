@@ -20,7 +20,7 @@ export default function Resume() {
         <div className="flex flex-col space-y-4 mb-16">
           <div className="flex items-center gap-4">
             <FileText className="w-10 h-10 text-primary" strokeWidth={2} />
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
               Resume.
             </h2>
           </div>
@@ -44,7 +44,7 @@ export default function Resume() {
           <div className="p-6 md:p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
             {/* Left Column */}
             <div className="w-full md:w-1/2 space-y-6">
-              <p className="text-2xl font-black text-foreground tracking-tight">
+              <p className="text-2xl font-bold text-foreground tracking-tight">
                 Want the full story?
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -72,7 +72,7 @@ export default function Resume() {
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-5 text-lg font-bold rounded-md shadow-sm hover:shadow-md transition-all duration-300 w-full sm:w-auto"
               >
-                <Download className="w-6 h-6 transition-transform group-hover:-translate-y-1" />
+                <Download className="w-5 h-5 transition-transform group-hover:-translate-y-1" />
                 <span>Download Resume</span>
               </a>
               

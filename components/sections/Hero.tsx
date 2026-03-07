@@ -27,11 +27,11 @@ export default function Hero() {
             className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full cursor-default"
           >
             {/* Animated glowing border effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/30 via-primary/30 to-blue-500/30 opacity-50 group-hover:opacity-100 blur-sm transition-opacity duration-500" />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/30 via-primary/30 to-blue-500/30 border border-white/10" />
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-green-500/30 via-primary/30 to-blue-500/30 opacity-50 group-hover:opacity-100 blur-sm transition-opacity duration-500" />
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-green-500/30 via-primary/30 to-blue-500/30 border border-white/10" />
             
             {/* Inner background */}
-            <div className="absolute inset-[1px] rounded-full bg-background/90 backdrop-blur-xl" />
+            <div className="absolute inset-px rounded-full bg-background/90 backdrop-blur-xl" />
 
             {/* Content */}
             <div className="relative flex items-center gap-2.5 z-10">
@@ -46,12 +46,11 @@ export default function Hero() {
           </motion.div>
 
           {/* Name */}
-          <h1 className="text-5xl sm:text-7xl lg:text-[6rem] xl:text-[7.5rem] font-black tracking-tighter leading-[1.05] max-w-5xl xl:max-w-7xl text-foreground">
+          <h1 className="text-5xl sm:text-7xl lg:text-[6rem] xl:text-[7.5rem] font-bold tracking-tight leading-[1.05] max-w-5xl xl:max-w-7xl text-foreground">
             Arshnoor Kirmani
           </h1>
 
-          {/* Dynamic Role */}
-          <div className="text-3xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] font-bold tracking-tight inline-block relative z-10 -mt-2 sm:-mt-4 lg:-mt-6">
+          <div className="text-3xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] font-medium tracking-tight inline-block relative z-10 -mt-2 sm:-mt-4 lg:-mt-6">
             <TypingAnimation
               words={[
                 "Frontend Developer",
@@ -59,7 +58,7 @@ export default function Hero() {
                 "UI/UX Enthusiast",
                 "TypeScript Developer"
               ]}
-              className="inline-block bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent leading-relaxed py-1 pr-1"
+              className="inline-block bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent leading-relaxed py-1 pr-1"
             />
           </div>
 

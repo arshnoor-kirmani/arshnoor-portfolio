@@ -1,4 +1,4 @@
-import { Outfit, Fira_Code } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeButton } from "@/components/theme-toggle-btn";
 import Transition from "@/components/ui/transition";
@@ -8,15 +8,9 @@ import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -38,7 +32,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${outfit.variable} ${firaCode.variable}`}
+      className={`${inter.variable} font-sans scroll-smooth`}
     >
       <head>
         <script

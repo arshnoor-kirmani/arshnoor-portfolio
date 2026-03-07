@@ -41,7 +41,7 @@ export default function Skills({
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Cpu className="w-10 h-10 text-primary" strokeWidth={1.5} />
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
               Technical Arsenal.
             </h2>
           </div>
@@ -86,7 +86,7 @@ export default function Skills({
                       <Icon className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors">
+                      <h3 className="text-xl md:text-2xl font-medium text-foreground tracking-tight group-hover:text-primary transition-colors">
                         {cat.title}
                       </h3>
                     </div>
