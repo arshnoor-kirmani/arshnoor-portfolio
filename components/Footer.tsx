@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border/50 bg-background relative overflow-hidden">
       {/* Subtle top gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
       
       <div className="max-w-[1200px] mx-auto px-6 py-12 md:py-16 flex flex-col items-center md:items-start gap-12 md:gap-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start w-full gap-8">
@@ -19,7 +19,7 @@ export default function Footer() {
               <div className="size-8 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 group-hover:bg-primary transition-colors duration-300">
                 <CodeXml className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
-              <span className="font-black text-xl tracking-tight font-serif">
+              <span className="font-black text-xl tracking-tight">
                 AK<span className="text-primary">.dev</span>
               </span>
             </Link>

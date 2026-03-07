@@ -16,7 +16,7 @@ const outfit = Outfit({
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -49,56 +49,63 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Person",
-                  "name": "Arshnoor Kirmani",
-                  "url": "https://arshnoorkirmani.vercel.app",
-                  "jobTitle": "Frontend Developer",
-                  "worksFor": {
+                  name: "Arshnoor Kirmani",
+                  url: "https://arshnoorkirmani.vercel.app",
+                  jobTitle: "Frontend Developer",
+                  worksFor: {
                     "@type": "Organization",
-                    "name": "Self-employed"
+                    name: "Self-employed",
                   },
-                  "sameAs": [
+                  sameAs: [
                     "https://github.com/arshnoorkirmani",
                     "https://linkedin.com/in/arshnoorkirmani",
-                    "https://arshnoorkirmani.vercel.app"
+                    "https://arshnoorkirmani.vercel.app",
                   ],
-                  "knowsAbout": ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS"]
+                  knowsAbout: [
+                    "React",
+                    "Next.js",
+                    "TypeScript",
+                    "Node.js",
+                    "MongoDB",
+                    "Tailwind CSS",
+                  ],
                 },
                 {
                   "@type": "WebSite",
-                  "name": "Arshnoor Kirmani Portfolio",
-                  "url": "https://arshnoorkirmani.vercel.app"
+                  name: "Arshnoor Kirmani Portfolio",
+                  url: "https://arshnoorkirmani.vercel.app",
                 },
                 {
                   "@type": "FAQPage",
-                  "mainEntity": [
+                  mainEntity: [
                     {
                       "@type": "Question",
-                      "name": "Who is Arshnoor Kirmani?",
-                      "acceptedAnswer": {
+                      name: "Who is Arshnoor Kirmani?",
+                      acceptedAnswer: {
                         "@type": "Answer",
-                        "text": "Arshnoor Kirmani is a Frontend Developer and Software Engineer from India specializing in React, Next.js, and scalable web architectures."
-                      }
+                        text: "Arshnoor Kirmani is a Frontend Developer and Software Engineer from India specializing in React, Next.js, and scalable web architectures.",
+                      },
                     },
                     {
                       "@type": "Question",
-                      "name": "What technologies does Arshnoor Kirmani use?",
-                      "acceptedAnswer": {
+                      name: "What technologies does Arshnoor Kirmani use?",
+                      acceptedAnswer: {
                         "@type": "Answer",
-                        "text": "Arshnoor Kirmani primarily uses React.js, Next.js, Node.js, TypeScript, and MongoDB for full-stack and frontend development."
-                      }
+                        text: "Arshnoor Kirmani primarily uses React.js, Next.js, Node.js, TypeScript, and MongoDB for full-stack and frontend development.",
+                      },
                     },
                     {
                       "@type": "Question",
-                      "name": "Where is Arshnoor Kirmani located?",
-                      "acceptedAnswer": {
+                      name: "Where is Arshnoor Kirmani located?",
+                      acceptedAnswer: {
                         "@type": "Answer",
-                        "text": "Arshnoor Kirmani is located in India, working as a web developer and frontend instructor."
-                      }
-                    }
-                  ]
-                }
-              ]
-            })
+                        text: "Arshnoor Kirmani is located in India, working as a web developer and frontend instructor.",
+                      },
+                    },
+                  ],
+                },
+              ],
+            }),
           }}
         />
       </head>
@@ -134,17 +141,22 @@ export default function RootLayout({
                     </div>
 
                     {/* Headline */}
-                <div className="space-y-2">
-                  <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter font-serif animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
-                    <span className="block text-foreground mb-2">
-                      Welcome to
-                    </span>
-                    <TypingAnimation 
-                      words={["My Portfolio", "My Universe", "My Creations", "My Story"]}
-                      className="inline-block bg-clip-text text-transparent bg-linear-to-br from-primary to-primary/50 pb-2 border-none"
-                    />
-                  </div>
-                </div>
+                    <div className="space-y-2">
+                      <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
+                        <span className="block text-foreground mb-2">
+                          Welcome to
+                        </span>
+                        <TypingAnimation
+                          words={[
+                            "My Portfolio",
+                            "My Universe",
+                            "My Creations",
+                            "My Story",
+                          ]}
+                          className="inline-block bg-clip-text text-transparent bg-linear-to-br from-primary to-primary/50 pb-2 border-none"
+                        />
+                      </div>
+                    </div>
 
                     {/* Elegant Divider */}
                     <div className="flex items-center justify-center gap-2 animate-in fade-in zoom-in-50 duration-700 delay-500 fill-mode-both">

@@ -41,7 +41,7 @@ export default function Skills({
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Cpu className="w-10 h-10 text-primary" strokeWidth={1.5} />
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight font-serif">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight">
               Technical Arsenal.
             </h2>
           </div>

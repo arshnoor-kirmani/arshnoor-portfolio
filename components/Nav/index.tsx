@@ -8,7 +8,7 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
         <Link href={siteConfig.nav.home} className="flex items-center gap-0.5 group cursor-pointer">
-          <span className="text-2xl font-black font-serif text-foreground tracking-tight">AK</span>
+          <span className="text-2xl font-black text-foreground tracking-tight">AK</span>
           <span className="text-2xl font-bold text-primary tracking-tight">.dev</span>
         </Link>
         <nav className="hidden md:flex items-center gap-8">

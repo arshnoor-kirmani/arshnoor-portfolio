@@ -37,7 +37,7 @@ export default function About() {
             className="w-full lg:w-1/2 space-y-8"
           >
             <div className="inline-block">
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 font-serif">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
                 Beyond the Code.
               </h2>
               <div className="h-1.5 w-24 bg-primary"></div>

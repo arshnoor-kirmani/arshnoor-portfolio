@@ -14,7 +14,7 @@ export default function Experience({
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center gap-4 mb-20">
           <Briefcase className="w-10 h-10 text-primary" />
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight font-serif">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight">
             Career Path.
           </h2>
         </div>
@@ -37,12 +37,12 @@ export default function Experience({
                 <div className="absolute left-[26px] md:left-[240px] top-[40px] md:top-[46px] w-4 h-4 bg-border rounded-full -translate-x-[7px] ring-4 ring-background group-hover:bg-primary group-hover:scale-125 transition-all duration-500 z-10" />
 
                 {/* Left side: Date & Location */}
-                <div className="w-full md:w-[240px] pt-8 md:pt-10 pl-14 md:pl-0 md:pr-12 flex flex-col items-start md:items-end gap-2 mb-4 md:mb-0 flex-shrink-0">
-                  <span className="inline-block px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md text-xs font-bold font-serif tracking-widest uppercase transition-colors duration-300 whitespace-nowrap border border-border/50">
+                <div className="w-full md:w-[240px] pt-8 md:pt-10 pl-14 md:pl-0 md:pr-12 flex flex-col items-start md:items-end gap-2 mb-4 md:mb-0 shrink-0">
+                  <span className="inline-block px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md text-xs font-bold tracking-widest uppercase transition-colors duration-300 whitespace-nowrap border border-border/50">
                     {exp.frontMatter.date}
                   </span>
                   <div className="text-left md:text-right mt-1 w-full max-w-[200px]">
-                    <p className="inline text-xs font-semibold font-serif text-muted-foreground uppercase tracking-widest leading-relaxed">
+                    <p className="inline text-xs font-semibold text-muted-foreground uppercase tracking-widest leading-relaxed">
                       <MapPin className="inline-block w-3.5 h-3.5 mr-1.5 -mt-0.5 text-primary opacity-80" />
                       {exp.frontMatter.location}
                     </p>
@@ -68,7 +68,7 @@ export default function Experience({
                         </a>
                       )}
                     </div>
-                    <p className="text-xs sm:text-sm font-bold font-serif uppercase tracking-widest text-primary mb-8 flex items-center gap-2">
+                    <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-primary mb-8 flex items-center gap-2">
                       <Building2 className="w-4 h-4" />
                       {exp.frontMatter.company}
                     </p>

@@ -31,7 +31,7 @@ export default function Education({
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center gap-4 mb-20">
           <GraduationCap className="w-10 h-10 text-primary" />
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight font-serif">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight">
             Education.
           </h2>
         </div>
