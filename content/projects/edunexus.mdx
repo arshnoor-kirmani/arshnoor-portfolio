@@ -20,9 +20,8 @@ github: "https://github.com/arshnoorkirmani/EduNexus"
 order: 1
 ---
 
-- Architected a scalable institute management platform handling **3+ core modules** (admissions, student records, attendance) with structured data modeling.
-- Built **25+ reusable UI components**, reducing UI duplication by **35%** and improving development speed.
-- Implemented secure **JWT-based authentication** and role-based access control (Admin/Staff), protecting **5+ restricted dashboards**.
-- Improved page load performance by approximately **28%** using memoization, code-splitting, and optimized asset delivery.
-- Maintained Lighthouse scores above **95 across performance, accessibility, and SEO (Peak: 97)**.
-- Ensured **100% mobile responsiveness** across major breakpoints using mobile-first design principles.
+- Architected a full-stack institute management platform using Next.js App Router, React, TypeScript, and MongoDB, applying a hybrid rendering strategy — SSG for public/SEO pages, SSR for secure admin data fetching, and CSR for session-dependent dashboards.
+- Designed a 3-tier RBAC system (Super Admin, Teacher, Student) governing student enrollment, attendance tracking, grade management, and academic records, each role served by a distinct protected dashboard with scoped permissions.
+- Designed and implemented 15+ REST API endpoints via Next.js Route Handlers with dual-layer Zod schema validation (client and server-side); managed global state via Redux Toolkit and form logic with React Hook Form for type-safe, consistent data flows.
+- Secured the platform with NextAuth.js Credentials Provider, bcrypt.js password hashing, CSRF protection, and Next.js middleware enforcing route-level authentication across all dashboard and API endpoints.
+- Achieved Lighthouse scores of 95+ Performance, 95+ Accessibility, 100 Best Practices, and 100 SEO via dynamic imports, lazy-loaded dashboard modules, and MongoDB indexing on email and studentId; deployed on Vercel with automated CI/CD and PR preview environments.

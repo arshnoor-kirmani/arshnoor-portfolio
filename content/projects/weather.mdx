@@ -17,8 +17,7 @@ github: "https://github.com/arshnoorkirmani/weather-application-react"
 order: 2
 ---
 
-- Developed real-time weather dashboard supporting **city search** and **geolocation-based detection** with hourly and 7-day forecasts.
-- Integrated **3 OpenWeather REST endpoints** with structured async handling, loading states, and error boundaries.
-- Reduced unnecessary component re-renders by approximately **30%** using memoization and optimized state management.
-- Built centralized unit conversion system supporting **5+ measurement formats** (°C, °F, km/h, m/s, hPa).
-- Implemented interactive Leaflet.js map with dynamic coordinate updates and real-time data visualization.
+- Built a real-time weather dashboard using React, TypeScript, and Tailwind CSS, integrating three OpenWeatherMap APIs (Current Weather, 7-Day Forecast, Geocoding) to deliver live conditions and extended forecasts across thousands of global locations.
+- Integrated the browser Geolocation API for automatic location detection and Leaflet.js for interactive maps with location markers and temperature overlays, enabling seamless geographic weather exploration.
+- Engineered production-quality UX via debounced city search to reduce redundant API calls, manual response caching, skeleton loaders with error fallback UI, and Celsius/Fahrenheit with metric/imperial unit toggles — across a fully responsive mobile-first interface.
+- Achieved sub-2s load times via manual API response caching and debounced search, cutting redundant network requests by ~40% during active city lookup sessions.
