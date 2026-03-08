@@ -53,7 +53,7 @@ export default function Hero() {
           <div className="text-3xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] font-medium tracking-tight inline-block relative z-10 -mt-2 sm:-mt-4 lg:-mt-6">
             <TypingAnimation
               words={[
-                "Frontend Developer",
+                "Full Stack Developer",
                 "React Specialist",
                 "UI/UX Enthusiast",
                 "TypeScript Developer"

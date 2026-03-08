@@ -44,7 +44,7 @@ export default function About() {
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              As a dedicated <strong className="font-semibold text-foreground">Frontend Developer</strong> from India, 
+              As a dedicated <strong className="font-semibold text-foreground">Full Stack Developer</strong> from India, 
               I specialize in creating pixel-perfect, high-performance 
               React and Next.js interfaces that don't just look good, but are built to scale. 
               My approach combines technical rigor with a deep understanding of 

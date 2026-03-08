@@ -58,7 +58,7 @@ export default async function Home() {
 
       <main className="w-full flex min-h-screen flex-col items-center justify-between overflow-x-hidden relative z-10">
         <header className="sr-only">
-          <h1>Arshnoor Kirmani Frontend Developer</h1>
+          <h1>Arshnoor Kirmani Full Stack Developer</h1>
         </header>
         <article>
           <Hero />

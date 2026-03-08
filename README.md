@@ -1,6 +1,6 @@
 # Arshnoor Kirmani - Portfolio
 
-![Arshnoor Kirmani - Frontend Developer Portfolio](public/opengraph-image.png)
+![Arshnoor Kirmani - Full Stack Developer Portfolio](public/opengraph-image.png)
 
 > **Front-End Developer & Jr. Software Engineer specializing in modern, scalable web applications.**
 

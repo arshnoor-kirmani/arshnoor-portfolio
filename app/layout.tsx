@@ -45,7 +45,7 @@ export default function RootLayout({
                   "@type": "Person",
                   name: "Arshnoor Kirmani",
                   url: "https://arshnoorkirmani.vercel.app",
-                  jobTitle: "Frontend Developer",
+                  jobTitle: "Full Stack Developer",
                   worksFor: {
                     "@type": "Organization",
                     name: "Self-employed",
@@ -77,7 +77,7 @@ export default function RootLayout({
                       name: "Who is Arshnoor Kirmani?",
                       acceptedAnswer: {
                         "@type": "Answer",
-                        text: "Arshnoor Kirmani is a Frontend Developer and Software Engineer from India specializing in React, Next.js, and scalable web architectures.",
+                        text: "Arshnoor Kirmani is a Full Stack Developer and Software Engineer from India specializing in React, Next.js, and scalable web architectures.",
                       },
                     },
                     {
