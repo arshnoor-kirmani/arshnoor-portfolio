@@ -8,6 +8,8 @@ import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Resume from "@/components/sections/Resume";
 import Contact from "@/components/sections/Contact";
+import Transition from "@/components/ui/transition";
+import IntroLoader from "@/components/IntroLoader";
 import {
   getSortedContentByFrontmatter,
   ExperienceItem,
@@ -37,14 +39,22 @@ export default async function Home() {
   const skillsData = JSON.parse(fs.readFileSync(skillsPath, "utf8"));
 
   return (
-    <>
+    <Transition
+      introDuration={2}
+      transitionDuration={1.2}
+      type="curved"
+      direction="bottom"
+      autoExit
+      className="bg-background"
+      intro={<IntroLoader />}
+    >
       <Nav />
-      
+
       <main className="w-full flex min-h-screen flex-col items-center justify-between overflow-x-hidden relative z-10">
         <header className="sr-only">
           <h1>Arshnoor Kirmani | Software Engineer</h1>
         </header>
-        
+
         <article className="w-full">
           <Hero />
           <About />
@@ -56,8 +66,8 @@ export default async function Home() {
           <Contact />
         </article>
       </main>
-      
+
       <Footer />
-    </>
+    </Transition>
   );
 }

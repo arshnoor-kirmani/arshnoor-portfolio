@@ -1,7 +1,5 @@
 import { Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import Transition from "@/components/ui/transition";
-import IntroLoader from "@/components/IntroLoader";
 import { defaultMetadata } from "@/lib/metadata";
 import type { Metadata, Viewport } from "next";
 
@@ -110,17 +108,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative grid min-h-screen w-full flex-col overflow-x-hidden">
-            <Transition
-              introDuration={2}
-              transitionDuration={1.2}
-              type="curved"
-              direction="bottom"
-              autoExit
-              className="bg-background"
-              intro={<IntroLoader />}
-            >
-              {children}
-            </Transition>
+            {children}
           </div>
         </ThemeProvider>
       </body>

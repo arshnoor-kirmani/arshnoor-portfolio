@@ -41,14 +41,12 @@ export default function Contact() {
             <a
               href={`mailto:${siteConfig.links.email}`}
               aria-label={`Send email to ${siteConfig.links.email}`}
-              className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-foreground text-background rounded-full overflow-hidden transition-transform hover:scale-[1.02] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
+              className="group inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-foreground text-background rounded-full font-bold tracking-tight transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-[1.02] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
             >
-              {/* Amber fill on hover */}
-              <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-              <span className="relative z-10 text-base sm:text-xl font-bold tracking-tight truncate-email sm:max-w-none">
+              <span className="text-base sm:text-xl truncate-email sm:max-w-none">
                 {siteConfig.links.email}
               </span>
-              <ArrowUpRight className="relative z-10 w-5 h-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="w-5 h-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
 
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground/50">
