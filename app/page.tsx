@@ -39,28 +39,13 @@ export default async function Home() {
   return (
     <>
       <Nav />
-      {/* Abstract Animated Background Watermark Fixes */}
-      <div className="fixed inset-0 pointer-events-none select-none z-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-10 animate-pulse duration-10000" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] mix-blend-screen opacity-10 animate-pulse delay-1000 duration-10000" />
-        {/* Typographic Watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none opacity-[0.03]">
-          <h1 className="font-black text-[clamp(6rem,15vw,20rem)] leading-none text-foreground">
-            ENGINEER
-          </h1>
-        </div>
-        <div className="absolute top-1/4 right-0 translate-x-1/4 -rotate-90 text-center pointer-events-none select-none opacity-[0.03]">
-          <h1 className="font-black text-[clamp(4rem,10vw,15rem)] leading-none text-foreground">
-            CREATIVE
-          </h1>
-        </div>
-      </div>
-
+      
       <main className="w-full flex min-h-screen flex-col items-center justify-between overflow-x-hidden relative z-10">
         <header className="sr-only">
-          <h1>Arshnoor Kirmani Full Stack Developer</h1>
+          <h1>Arshnoor Kirmani | Software Engineer</h1>
         </header>
-        <article>
+        
+        <article className="w-full">
           <Hero />
           <About />
           <Experience experience={experienceFiles} />
@@ -71,6 +56,7 @@ export default async function Home() {
           <Contact />
         </article>
       </main>
+      
       <Footer />
     </>
   );

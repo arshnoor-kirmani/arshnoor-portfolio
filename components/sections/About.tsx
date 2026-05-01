@@ -1,142 +1,76 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Lightbulb, Code2, Globe2, ScanFace, Box } from "lucide-react";
 
 export default function About() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <section
       id="about"
-      className="py-20 md:py-24 lg:py-28 w-full relative overflow-hidden bg-card/50"
+      className="py-24 md:py-32 w-full relative overflow-hidden bg-section border-b border-surface-border"
     >
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Left Text Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-            className="w-full lg:w-1/2 space-y-8"
-          >
-            <div className="inline-block">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                Beyond the Code.
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+          {/* Section Label */}
+          <div className="lg:w-1/4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="sticky top-24"
+            >
+              <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-4">
+                Philosophy
               </h2>
-              <div className="h-1.5 w-24 bg-primary"></div>
-            </div>
+              <div className="h-[2px] w-12 bg-primary/30" />
+            </motion.div>
+          </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              As a dedicated <strong className="font-semibold text-foreground">Full Stack Developer</strong> from India, 
-              I specialize in creating pixel-perfect, high-performance 
-              React and Next.js interfaces that don't just look good, but are built to scale. 
-              My approach combines technical rigor with a deep understanding of 
-              user psychology.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Hi, I'm <strong className="font-semibold text-foreground">Arshnoor Kirmani</strong>. 
-              Beyond production code, I have a passion for education. As a
-              frontend instructor, I focus on teaching the core fundamentals of
-              the web, ensuring the next generation understands the{" "}
-              <span className="text-foreground font-semibold italic">
-                "why"
-              </span>{" "}
-              behind the{" "}
-              <span className="text-foreground font-semibold italic">
-                "how."
-              </span>
-            </p>
-
-            <div className="flex items-center gap-5 pt-6 p-6 bg-secondary/30 rounded-md border border-border">
-              <div className="size-14 shrink-0 bg-primary/10 rounded-md flex items-center justify-center border border-primary/20">
-                <Lightbulb className="w-7 h-7 text-primary" strokeWidth={2.5} />
-              </div>
-              <div>
-                <h4 className="font-bold text-foreground text-lg mb-1">
-                  Creative Problem Solving
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Turning complex challenges into elegant, scalable solutions.
+          {/* Main Content */}
+          <div className="lg:w-3/4 space-y-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="max-w-3xl"
+            >
+              <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-8">
+                Building with discipline. <br />
+                Designing for people.
+              </h3>
+              
+              <div className="space-y-6 text-lg sm:text-xl text-muted-foreground leading-relaxed font-light">
+                <p>
+                  I approach software engineering as a craft. To me, code isn&apos;t just about making things work—it&apos;s about creating <span className="text-foreground font-normal italic underline decoration-primary/30 underline-offset-4">sustainable systems</span> that are easy to reason about and a joy to use.
+                </p>
+                <p>
+                  With a background in both full-stack development and frontend instruction, I bridge the gap between complex backend logic and intuitive user interfaces. I believe the best products are built when technical rigor meets empathetic design.
                 </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Right Stats Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="w-full lg:w-1/2 grid grid-cols-2 gap-4 md:gap-6"
-          >
-            {[
-              {
-                label: "Projects Built",
-                value: "10+",
-                icon: (
-                  <Code2
-                    className="w-24 h-24 text-primary"
-                    strokeWidth={1}
-                  />
-                ),
-              },
-              {
-                label: "Students Mentored",
-                value: "15+",
-                icon: (
-                  <ScanFace className="w-24 h-24 text-primary" strokeWidth={1} />
-                ),
-              },
-              {
-                label: "Performance Score",
-                value: "97+",
-                icon: (
-                  <Globe2 className="w-24 h-24 text-primary" strokeWidth={1} />
-                ),
-              },
-              {
-                label: "Clean Code",
-                value: "100%",
-                icon: (
-                  <Box className="w-24 h-24 text-primary" strokeWidth={1} />
-                ),
-              },
-            ].map((stat, i) => (
-              <motion.div
-                variants={cardVariants}
-                key={i}
-                className="group relative p-6 md:p-8 bg-card rounded-xl border border-border overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-border/80"
-              >
-                <div className="absolute -top-4 -right-4 p-4 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 group-hover:rotate-12 duration-500 pointer-events-none">
-                  {stat.icon}
-                </div>
-                <h4 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors relative z-10">
-                  {stat.value}
-                </h4>
-                <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest relative z-10">
-                  {stat.label}
+            {/* Core Values / Focus Areas */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-surface-border"
+            >
+              <div className="space-y-4 p-6 rounded-sm bg-surface border border-surface-border shadow-sm">
+                <h4 className="font-bold text-foreground uppercase tracking-[0.2em] text-[10px]">Technical Focus</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                  React ecosystems, Next.js, Type-safe development with TypeScript, and scalable Node.js architectures.
                 </p>
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+              <div className="space-y-4 p-6 rounded-sm bg-surface border border-surface-border shadow-sm">
+                <h4 className="font-bold text-foreground uppercase tracking-[0.2em] text-[10px]">Design Mindset</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                  Minimalism, accessibility (a11y), responsive fluidity, and motion that serves a purpose.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

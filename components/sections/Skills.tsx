@@ -1,11 +1,18 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Cpu, TerminalSquare, Code2, Layout, Database, Wrench } from "lucide-react";
+import { Code2, Layout, Database, Wrench, Terminal } from "lucide-react";
 
 type SkillCategory = {
   title: string;
   skills: string[];
+};
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Languages:         Terminal,
+  Frontend:          Layout,
+  "Backend & Cloud": Database,
+  "Tools & Concepts": Wrench,
 };
 
 export default function Skills({
@@ -13,107 +20,92 @@ export default function Skills({
 }: {
   skillsCategories: SkillCategory[];
 }) {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <section
       id="skills"
-      className="py-32 border-y border-border relative overflow-hidden w-full"
+      className="py-24 md:py-32 w-full bg-background border-b border-surface-border"
     >
-      {/* No background glow */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
 
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Cpu className="w-10 h-10 text-primary" strokeWidth={1.5} />
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Technical Arsenal.
-            </h2>
+          {/* ── Sticky label ──────────────────── */}
+          <div className="lg:w-1/4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:sticky lg:top-28 space-y-5"
+            >
+              <div className="space-y-3">
+                <h2 className="text-xs font-bold tracking-[0.4em] text-primary uppercase">
+                  Inventory
+                </h2>
+                <h3 className="text-4xl font-bold tracking-tight text-foreground leading-tight">
+                  Technical{" "}
+                  <span className="text-muted-foreground/35 italic">Capabilities.</span>
+                </h3>
+              </div>
+              <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                A structured breakdown of my current tech stack and core
+                engineering competencies.
+              </p>
+            </motion.div>
           </div>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            A comprehensive overview of the tools and technologies I use to
-            build world-class digital experiences.
-          </p>
-        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-6"
-        >
-          {skillsCategories.map((cat, idx) => {
-            // Create dynamic staggered layout: alternating 5 and 7 columns
-            const colSpan = idx === 0 || idx === 3 ? "md:col-span-5" : "md:col-span-7"; 
-            
-            const icons = [Code2, Layout, Database, Wrench];
-            const bgIcons = [TerminalSquare, Layout, Database, Wrench];
-            const Icon = icons[idx % icons.length];
-            const BgIcon = bgIcons[idx % bgIcons.length];
+          {/* ── Cards grid ────────────────────── */}
+          <div className="lg:w-3/4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {skillsCategories.map((cat, idx) => {
+                const Icon = ICON_MAP[cat.title] ?? Code2;
+                return (
+                  <motion.div
+                    key={cat.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.08 }}
+                    className="group relative p-7 bg-surface border border-surface-border rounded-sm overflow-hidden transition-all duration-400 hover:shadow-lg hover:shadow-black/8 focus-within:shadow-lg"
+                  >
+                    {/* Hover amber glow */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 bg-primary/4 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    />
 
-            return (
-              <motion.div
-                key={idx}
-                variants={cardVariants}
-                className={`relative p-7 md:p-8 bg-card rounded-xl border border-border shadow-sm hover:shadow-md hover:border-border/80 transition-all duration-700 group overflow-hidden ${colSpan}`}
-              >
-                {/* No top glow */}
-                
-                {/* Large decorative icon in background */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.015] pointer-events-none">
-                  <BgIcon className="w-64 h-64 md:w-80 md:h-80 -mr-10" />
-                </div>
+                    <div className="relative z-10 space-y-7">
+                      {/* Icon + section number */}
+                      <div className="flex items-center justify-between">
+                        <div className="p-2.5 bg-background rounded-sm border border-border group-hover:border-primary/30 transition-colors">
+                          <Icon className="w-4.5 h-4.5 text-primary" aria-hidden />
+                        </div>
+                        <span className="text-[9px] font-bold tracking-widest text-muted-foreground/30 uppercase tabular-nums">
+                          {String(idx + 1).padStart(2, "0")}
+                        </span>
+                      </div>
 
-                <div className="relative z-10 flex flex-col">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-11 h-11 bg-secondary rounded-lg flex items-center justify-center border border-border group-hover:border-border/80 transition-colors duration-500 shrink-0 shadow-sm">
-                      <Icon className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-medium text-foreground tracking-tight group-hover:text-primary transition-colors">
+                      {/* Category title */}
+                      <h4 className="text-sm font-bold tracking-widest text-foreground uppercase border-l-2 border-primary pl-3 leading-tight">
                         {cat.title}
-                      </h3>
+                      </h4>
+
+                      {/* Skill pills */}
+                      <div className="flex flex-wrap gap-2">
+                        {cat.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-2.5 py-1 text-[10px] font-bold tracking-wider rounded-sm bg-background/70 text-muted-foreground uppercase border border-border/40 hover:border-primary/40 hover:text-foreground transition-all duration-200 cursor-default"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-6">
-                    Core stack & ecosystem
-                  </p>
-
-                  {/* Subtle divider */}
-                  <div className="h-px w-full bg-border/50 mb-6" />
-
-                  <div className="flex flex-wrap gap-2.5">
-                    {cat.skills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-2 text-[13px] font-medium bg-background rounded-md text-foreground border border-border shadow-sm hover:bg-primary hover:text-primary-foreground hover:shadow-md transition-all duration-300 cursor-default"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

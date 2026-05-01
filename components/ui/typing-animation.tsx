@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 
 interface TypingAnimationProps {
   words: string[];
@@ -24,8 +23,6 @@ export function TypingAnimation({
   const [typingDelay, setTypingDelay] = useState(typingSpeed);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-
     const handleTyping = () => {
       const i = loopNum % words.length;
       const fullText = words[i];
@@ -46,7 +43,7 @@ export function TypingAnimation({
       }
     };
 
-    timer = setTimeout(handleTyping, typingDelay);
+    const timer = setTimeout(handleTyping, typingDelay);
 
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, words, typingSpeed, deletingSpeed, pauseDuration, typingDelay]);

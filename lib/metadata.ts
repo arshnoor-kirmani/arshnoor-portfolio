@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 const defaultTitle =
   "Arshnoor Kirmani | Full Stack Developer | React & Next.js";
 const defaultDescription =
-  "Full Stack Developer from India specializing in building scalable, high-performance web applications. Expert React Developer and Next.js Developer.";
+  "Full Stack Developer from India building scalable, high-performance web applications with React, Next.js, and TypeScript.";
 const defaultUrl = siteConfig.url; // Centralized in site.ts
 
 export const defaultMetadata: Metadata = {

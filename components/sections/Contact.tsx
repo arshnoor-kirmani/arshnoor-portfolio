@@ -1,67 +1,80 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "motion/react";
-import { Mail, Linkedin, Github } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-24 lg:py-28 w-full max-w-[1200px] mx-auto px-6 relative"
+      className="py-32 md:py-48 w-full bg-section border-b border-surface-border"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
-        className="relative overflow-hidden bg-card rounded-lg p-8 md:p-12 lg:p-16 border border-border shadow-sm hover:shadow-md transition-shadow"
-      >
-        <div className="relative z-10 text-center flex flex-col items-center">
-          <div className="inline-flex items-center justify-center size-20 bg-secondary rounded-md mb-8 border border-border shadow-sm group hover:scale-110 transition-transform">
-            <Mail className="w-10 h-10 text-primary" strokeWidth={1.5} />
-          </div>
-
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight text-balance">
-            Let's Build Something <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-700 dark:from-primary dark:to-blue-300">
-            Amazing.
-            </span>
-          </h2>
-
-          <p className="text-muted-foreground text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-            I'm currently looking for new opportunities to build impactful
-            digital products. My inbox is always open!
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="space-y-10"
+        >
+          {/* Label */}
+          <p className="text-xs font-bold tracking-[0.4em] text-primary uppercase">
+            Get in Touch
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
+          {/* Headline */}
+          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground leading-none">
+            Let&apos;s build <br />
+            <span className="text-muted-foreground/20 italic">the future.</span>
+          </h2>
+
+          {/* Sub-copy */}
+          <p className="max-w-xl mx-auto text-lg text-muted-foreground font-light leading-relaxed">
+            I&apos;m currently open to new roles and collaborations. Whether you
+            have a specific project in mind or just want to say hello, my inbox
+            is always open.
+          </p>
+
+          {/* Email CTA */}
+          <div className="pt-4 flex flex-col items-center gap-4">
             <a
               href={`mailto:${siteConfig.links.email}`}
-              className="w-full sm:w-auto bg-primary text-primary-foreground px-12 py-5 font-black text-lg rounded-md hover:scale-105 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3"
+              aria-label={`Send email to ${siteConfig.links.email}`}
+              className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-foreground text-background rounded-full overflow-hidden transition-transform hover:scale-[1.02] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
             >
-              Say Hello
+              {/* Amber fill on hover */}
+              <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+              <span className="relative z-10 text-base sm:text-xl font-bold tracking-tight truncate-email sm:max-w-none">
+                {siteConfig.links.email}
+              </span>
+              <ArrowUpRight className="relative z-10 w-5 h-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
 
-            <div className="flex items-center gap-4 w-full sm:w-auto justify-center">
-              <Link
-                href={siteConfig.links.linkedin}
-                target="_blank"
-                className="size-16 bg-secondary rounded-md text-foreground flex items-center justify-center hover:bg-card hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300 border border-border shadow-sm group"
-              >
-                <Linkedin className="w-6 h-6 group-hover:text-primary transition-colors" />
-              </Link>
-              <Link
-                href={siteConfig.links.github}
-                target="_blank"
-                className="size-16 bg-secondary rounded-md text-foreground flex items-center justify-center hover:bg-card hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300 border border-border shadow-sm group"
-              >
-                <Github className="w-6 h-6 group-hover:text-primary transition-colors" />
-              </Link>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground/50">
+              or find me on
+            </span>
+
+            {/* Secondary social links — not repeated in footer icon-style, just plain text */}
+            <div className="flex items-center gap-8">
+              {[
+                { label: "LinkedIn", href: siteConfig.links.linkedin },
+                { label: "GitHub", href: siteConfig.links.github },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

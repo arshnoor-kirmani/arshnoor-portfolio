@@ -7,7 +7,7 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 export function getMdxFiles(dir: string) {
   try {
     return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
-  } catch (err) {
+  } catch {
     return [];
   }
 }
